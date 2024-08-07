@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  operation-service:
+    image: mizala/operation-service:${TAG:-latest}
+    container_name: operation-service
+    pull_policy: never
+    build:
+      context: ../../operation-service-api
+    env_file:
+      - ../.env
+      - .env
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

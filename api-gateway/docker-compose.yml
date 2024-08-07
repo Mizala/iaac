@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  api-gateway:
+    image: mizala/api-gateway:${TAG:-latest}
+    container_name: api-gateway
+    pull_policy: never
+    build: ../../api-gateway
+    env_file:
+      - ../.env
+      - .env
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

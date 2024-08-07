@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  notification-service:
+    image: mizala/notification-service:${TAG:-latest}
+    container_name: notification-service
+    pull_policy: never
+    build:
+      context: ../../notification-service-api
+    env_file:
+      - ../.env
+      - .env
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

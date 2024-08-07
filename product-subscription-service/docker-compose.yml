@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  product-subscription-service:
+    image: mizala/product-subscription-service:${TAG:-latest}
+    container_name: product-subscription-service
+    pull_policy: never
+    build:
+      context: ../../product-subscription-service-api
+      dockerfile: deploy/Dockerfile
+    env_file:
+      - ../.env
+      - .env
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

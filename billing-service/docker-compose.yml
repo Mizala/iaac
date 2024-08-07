@@ -1,0 +1,18 @@
+services:
+  billing-service:
+    image: mizala/billing-service:${TAG:-latest}
+    container_name: billing-service
+    pull_policy: never
+    build:
+      context: ../../billing-service-api
+    env_file:
+      - ../.env
+      - .env
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

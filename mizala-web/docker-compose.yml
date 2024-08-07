@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  mizala-web:
+    image: mizala/mizala-web:${TAG:-latest}
+    pull_policy: never
+    build:
+      context: ../../mizala-next-web
+      dockerfile: staging.Dockerfile
+    container_name: mizala-web
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true

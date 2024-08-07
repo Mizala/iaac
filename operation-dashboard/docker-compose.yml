@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  operation-dashboard:
+    image: mizala/operation-dashboard:${TAG:-latest}
+    pull_policy: never
+    build:
+      context: ../../operations-dashboard
+      dockerfile: staging.Dockerfile
+    container_name: operation-dashboard
+    restart: always
+    networks:
+      - mizala
+
+networks:
+  mizala:
+    name: mizala
+    external: true
