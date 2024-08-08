@@ -12,9 +12,9 @@ services:
     ports:
       - "80:80"
     networks:
-      - payfonte
+      - mizala
 
 networks:
   payfonte:
-    name: payfonte
+    name: mizala
     external: true
