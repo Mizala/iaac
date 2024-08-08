@@ -15,6 +15,6 @@ services:
       - mizala
 
 networks:
-  payfonte:
+  mizala:
     name: mizala
     external: true
