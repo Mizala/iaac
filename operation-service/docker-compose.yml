@@ -1,4 +1,4 @@
-version: '3.7'
+
 
 services:
   operation-service:
@@ -6,7 +6,7 @@ services:
     container_name: operation-service
     pull_policy: never
     build:
-      context: ../../operation-service-api
+      context: ../../operations-dashboard
     env_file:
       - ../.env
       - .env
